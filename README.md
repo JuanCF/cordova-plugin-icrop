@@ -90,7 +90,10 @@ export class CameraService {
         if (this.platform.is('android') {
           // Modify fileUri format, may not always be necessary
           fileUri = 'file://' + fileUri;
-          const options = { quality: 100 };
+          const options = {
+				quality: 100, //Optional
+			    sourceType: 1 //Optional, 1 for URI, 0 for PATH
+		  };
           /* Using cordova-plugin-icrop starts here */
           plugins.crop.promise(fileUri, options).then( (path) => {
             // path looks like 'file:///storage/emulated/0/Android/data/com.foo.bar/cache/1477008080626-cropped.jpg?1477008106566'
