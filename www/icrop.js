@@ -2,6 +2,7 @@
 var crop = module.exports = function cropImage (success, fail, image, options) {
   options = options || {}
   options.quality = options.quality || 100
+  options.sourceType = options.sourceType || 1
   return cordova.exec(success, fail, 'CropPlugin', 'cropImage', [image, options])
 }
 
