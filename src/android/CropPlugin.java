@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 
 import com.yalantis.ucrop.UCrop;
 
@@ -15,8 +14,6 @@ import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-private static final String TAG = "ICROPlugin";
 
 import java.io.File;
 
@@ -30,7 +27,6 @@ public class CropPlugin extends CordovaPlugin {
       if (action.equals("cropImage")) {
           String imagePath = args.getString(0);
           String sourceType = args.getString(1);
-		  Log.i(TAG,"sourcetype"+sourceType);
           JSONObject jsonObject = new JSONObject(sourceType);
           String targetSourceType  = jsonObject.getString("sourceType");
 
