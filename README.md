@@ -91,8 +91,8 @@ export class CameraService {
           // Modify fileUri format, may not always be necessary
           fileUri = 'file://' + fileUri;
           const options = {
-				quality: 100, //Optional
-			    sourceType: 1 //Optional, 1 for URI, 0 for PATH
+			quality: 100, //Optional
+			sourceType: 1 //Optional, 1 for URI, 0 for PATH
 		  };
           /* Using cordova-plugin-icrop starts here */
           plugins.crop.promise(fileUri, options).then( (path) => {
