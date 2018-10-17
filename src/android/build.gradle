@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    compile 'om.github.yalantis:ucrop:2.2.2-native'
+    compile 'com.github.yalantis:ucrop:2.2.2-native'
 }
 
 
