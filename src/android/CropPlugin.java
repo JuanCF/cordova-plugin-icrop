@@ -43,9 +43,14 @@ public class CropPlugin extends CordovaPlugin {
           cordova.setActivityResultCallback(this);
           UCrop uCrop = UCrop.of(this.inputUri, this.outputUri);
 
-		  JSONObject formFactor = jsonObject.getJSONObject("formFactor");
-		  if(formFactor != null){
-			uCrop.withAspectRatio(16, 9);
+
+		  if(jsonObject.has("aspectRatio")){
+		  	JSONObject formFactor = jsonObject.getJSONObject("aspectRatio");
+			if(formFactor.has("ratioX") && formFactor.has("ratioY")){
+				Integer ratioX = formFactor.getInt("ratioX");
+				Integer ratioY = formFactor.getInt("ratioY");
+				uCrop.withAspectRatio(ratioX, ratioY);
+			}
 		  }
           uCrop.withMaxResultSize(800, 2400);
           uCrop.start(cordova.getActivity());
