@@ -52,7 +52,16 @@ public class CropPlugin extends CordovaPlugin {
 				uCrop.withAspectRatio(ratioX, ratioY);
 			}
 		  }
-          uCrop.withMaxResultSize(800, 2400);
+
+		  if(jsonObject.has("maxResultSize")){
+			  JSONObject maxSize = jsonObject.getJSONObject("maxResultSize");
+			  if(maxSize.has("maxWidth") && maxSize.has("maxHeight")){
+				Integer maxWidth = maxSize.getInt("maxWidth");
+				Integer maxHeight = maxSize.getInt("maxHeight");
+				uCrop.withMaxResultSize(maxWidth, maxHeight);
+			  }
+		  }
+
           uCrop.start(cordova.getActivity());
 
           return true;
